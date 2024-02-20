@@ -1,0 +1,47 @@
+<%= form_with(model: flower) do |form| %>
+  <% if flower.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(flower.errors.count, "error") %> prohibited this flower from being saved:</h2>
+
+      <ul>
+        <% flower.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :sepal_length, class: "form-label" %>
+    <%= form.text_field :sepal_length, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :sepal_width, class: "form-label" %>
+    <%= form.text_field :sepal_width, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :petal_length, class: "form-label" %>
+    <%= form.text_field :petal_length, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :petal_width, class: "form-label" %>
+    <%= form.text_field :petal_width, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :species, class: "form-label" %>
+    <%= form.select :species, %w(setosa versicolor viginica), {include_blank: "Select a species"}, {class: "form-select"} %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :notes, class: "form-label" %>
+    <%= form.rich_text_area :notes %>
+  </div>
+
+  <div>
+    <%= form.submit class: "btn btn-primary" %>
+  </div>
+<% end %>

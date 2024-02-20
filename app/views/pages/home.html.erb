@@ -1,4 +1,17 @@
 <div class="container pt-5">
-  <h1><i class="bi bi-gem" style="color: red;"></i> Coming soon</h1>
-  <p>Site is under construction</p>
+  <h1><i class="bi bi-gem" style="color: red;"></i> Greetings</h1>
+  
+  <%= form_with url: root_path, method: :get do |form| %>
+    <%= form.label :name, "A name to be greeted:" %>
+    <%= form.text_field :name %>
+    <%= form.submit "Greet" %>
+  <% end %>
+
+  <p>
+    <% if !@name.empty? %>
+      Welcome to WEB 3200 <%= @name %>
+    <% else %>
+      Please enter name first.
+    <% end %>
+  </p>
 </div>

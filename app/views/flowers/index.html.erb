@@ -1,0 +1,31 @@
+<div class="container">
+  <p style="color: green"><%= notice %></p>
+
+  <h1>Flowers</h1>
+
+  <table id="flowers" class="table">
+    <thead>
+      <th>Sepal Length</th>
+      <th>Sepal Width</th>
+      <th>Pedal Length</th>
+      <th>Pedal Width</th>
+      <th>Species</th>
+      <th></th>
+    </thead>
+    <tbody>
+        <% @flowers.each do |flower| %>
+          <tr>
+            <td><%= flower.sepal_length %></td>
+            <td><%= flower.sepal_width %></td>
+            <td><%= flower.petal_length %></td>
+            <td><%= flower.petal_width %></td>
+            <td><%= flower.species %></td>
+            <td><%= link_to "Show this flower", flower %></td>
+          </tr>
+
+        <% end %>
+    </tbody>
+  </table>
+
+  <%= link_to "New flower", new_flower_path %>
+</div>
